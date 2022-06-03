@@ -85,8 +85,7 @@ class WebService:
         }
         """
         res = self.service.InitiateEBillRecipientSubscription(
-            BillerID=self.biller_id,
-            SubscriptionInitiationEmailAddress=recipient_email,
+            BillerID=self.biller_id, SubscriptionInitiationEmailAddress=recipient_email
         )
         return res
 
@@ -102,7 +101,7 @@ class WebService:
         res = self.service.ConfirmEBillRecipientSubscription(
             BillerID=self.biller_id,
             SubscriptionInitiationToken=initiation_token,
-            SubscriptionInitiationActivationCode=activation_code
+            SubscriptionInitiationActivationCode=activation_code,
         )
         return res
 
@@ -119,8 +118,7 @@ class WebService:
         }]
         """
         res = self.service.GetEBillRecipientSubscriptionStatus(
-            BillerID=self.biller_id,
-            RecipientID=recipient_id,
+            BillerID=self.biller_id, RecipientID=recipient_id
         )
         return res
 
@@ -134,8 +132,7 @@ class WebService:
         recipients = array_bill_recipient(bill_recipient_id)
 
         res = self.service.GetEBillRecipientSubscriptionStatusBulk(
-            BillerID=self.biller_id,
-            RecipientID=recipients,
+            BillerID=self.biller_id, RecipientID=recipients
         )
         # An error occurs, maybe because the response is badly formatted ?
         # zeep.exceptions.ValidationError:
@@ -158,8 +155,7 @@ class WebService:
 
         """
         res = self.service.GetInvoiceListBiller(
-            BillerID=self.biller_id,
-            ArchiveData=archive_data,
+            BillerID=self.biller_id, ArchiveData=archive_data
         )
         return res
 
@@ -195,8 +191,7 @@ class WebService:
             }
         """
         res = self.service.GetProcessProtocolList(
-            BillerID=self.biller_id,
-            ArchiveData=archive_data,
+            BillerID=self.biller_id, ArchiveData=archive_data
         )
         return res
 
@@ -214,9 +209,7 @@ class WebService:
 
         """
         res = self.service.GetProcessProtocol(
-            BillerID=self.biller_id,
-            CreateDate=create_date,
-            ArchiveData=archive_data,
+            BillerID=self.biller_id, CreateDate=create_date, ArchiveData=archive_data
         )
         return res
 
@@ -229,8 +222,7 @@ class WebService:
 
         """
         res = self.service.GetRegistrationProtocolList(
-            BillerID=self.biller_id,
-            ArchiveData=archive_data,
+            BillerID=self.biller_id, ArchiveData=archive_data
         )
         return res
 
@@ -244,8 +236,6 @@ class WebService:
 
         """
         res = self.service.GetRegistrationProtocol(
-            BillerID=self.biller_id,
-            CreateDate=create_date,
-            ArchiveData=archive_data,
+            BillerID=self.biller_id, CreateDate=create_date, ArchiveData=archive_data
         )
         return res
